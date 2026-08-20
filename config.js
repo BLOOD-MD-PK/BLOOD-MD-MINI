@@ -337,7 +337,7 @@ module.exports = {
      * @description Repository link
      * @type {string}
      */
-    REPO: process.env.REPO || 'https://github.com/blood-co-official',
+    REPO: process.env.REPO || 'https://github.com/BLOOD-MD-PK/BLOOD-MD-MINI',
 
     // ═══════════════════════════════════════════
     //  🐛 DEBUG & LOGGING
