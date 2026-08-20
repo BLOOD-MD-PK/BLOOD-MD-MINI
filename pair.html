@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title> BLOOD-MD-MINI </title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+/* ===============================
+   RED & DARK PROFESSIONAL THEME
+   =============================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg-color: #0d0d0f;
+    --card-bg: #141418;
+    --border-color: rgba(255, 255, 255, 0.08);
+    --primary-color: #e63946;
+    --primary-hover: #ff4d5a;
+    --text-main: #f8f9fa;
+    --text-muted: #8d99ae;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-color);
+    color: var(--text-main);
+    padding: 20px;
+}
+
+/* Card */
+.card {
+    width: 90%;
+    max-width: 420px;
+    background: var(--card-bg);
+    border-radius: 20px;
+    padding: 32px 24px 28px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+}
+
+/* Plain Text */
+.rgb-text {
+    color: var(--text-main);
+    background: none;
+    -webkit-text-fill-color: initial;
+}
+
+/* Titles */
+h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 2px;
+    color: var(--text-main);
+}
+
+h1:last-of-type {
+    font-size: 1.4rem;
+    margin-bottom: 4px;
+    color: var(--primary-color);
+}
+
+/* Status */
+.status {
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    margin: 6px 0 16px 0;
+    font-weight: 500;
+}
+
+/* ===== INPUT & BUTTON ===== */
+.input-wrap {
+    background: transparent;
+    border-radius: 12px;
+    padding: 0;
+    margin-bottom: 14px;
+}
+
+input {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    outline: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #0d0d0f;
+    color: var(--text-main);
+    text-align: center;
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.2s ease;
+}
+
+input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+}
+
+input::placeholder {
+    color: var(--text-muted);
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    padding: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    background: var(--primary-color);
+    color: #fff;
+    transition: all 0.2s ease;
+    letter-spacing: 0.5px;
+}
+
+button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.3);
+}
+
+button:active {
+    transform: translateY(0px);
+}
+
+/* ===== RESULT BOX ===== */
+#result {
+    margin-top: 20px;
+    min-height: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.code-display {
+    padding: 14px 24px;
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+    letter-spacing: 4px;
+    cursor: pointer;
+    background: #0d0d0f;
+    font-size: 1.1rem;
+    font-weight: 600;
+    width: 100%;
+    min-height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+}
+
+.code-display:hover {
+    border-color: var(--primary-color);
+}
+
+/* Loader */
+.loader {
+    width: 28px;
+    height: 28px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top: 3px solid var(--primary-color);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Footer */
+footer {
+    margin-top: 20px;
+    font-size: 0.7rem;
+    color: var(--text-muted);
+    letter-spacing: 0.5px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 14px;
+}
+
+/* ===== RED REPLACEMENTS FOR RGB BOX CLASSES ===== */
+.rgb-box {
+    width: 100%;
+    max-width: 340px;
+    margin: 0 auto 14px auto;
+}
+
+.rgb-box input {
+    width: 100%;
+    border: 1px solid var(--border-color);
+    outline: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    background: #0d0d0f;
+    color: var(--text-main);
+    text-align: center;
+    font-size: 1rem;
+}
+
+.rgb-box input:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.2);
+}
+
+.rgb-btn {
+    width: 100%;
+    max-width: 340px;
+    border-radius: 12px;
+    background: var(--primary-color);
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+    transition: all 0.2s ease;
+}
+
+.btn-inner {
+    background: transparent;
+    color: #fff;
+    display: block;
+    padding: 14px;
+    border-radius: 12px;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 0.5px;
+    text-align: center;
+}
+
+.rgb-btn:hover {
+    background: var(--primary-hover);
+    transform: translateY(-1px);
+    box-shadow: 0 5px 20px rgba(230, 57, 70, 0.3);
+}
+
+.result-box {
+    width: 100%;
+    max-width: 340px;
+    margin: 16px auto 0;
+    border-radius: 12px;
+    background: #0d0d0f;
+    border: 1px solid var(--border-color);
+    display: none;
+}
+
+.result-inner {
+    background: transparent;
+    border-radius: 12px;
+    padding: 14px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#codeBox {
+    letter-spacing: 3px;
+    color: var(--text-main);
+}
+
+/* Small decorative elements */
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin: 4px 0 10px 0;
+    opacity: 0.3;
+}
+
+.divider span {
+    width: 30px;
+    height: 1px;
+    background: var(--border-color);
+}
+
+.badge-group {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 4px;
+}
+
+.badge {
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border-color);
+    font-size: 0.65rem;
+    letter-spacing: 0.5px;
+    color: var(--text-muted);
+    font-weight: 500;
+}
+
+@media (max-width: 480px) {
+    .card { padding: 24px 16px; }
+    h1 { font-size: 1.5rem; }
+    h1:last-of-type { font-size: 1.2rem; }
+}
+</style>
+
+</head>
+<body>
+
+<div class="card">
+
+<h1 class="rgb-text"> 🚀Blood-MD-Mini </h1>
+<h1 class="rgb-text">PAIR CODE</h1>
+
+<p class="status rgb-text">TYPE YOUR WHATSAPP NUMBER</p>
+
+<!-- Input with RGB Border -->
+<div class="rgb-box">
+    <input type="text" id="number" placeholder="923XXXXXXXXX">
+</div>
+
+<!-- Button with RGB Border -->
+<button class="rgb-btn" onclick="getCode()">
+    <span class="btn-inner">GET PAIR CODE</span>
+</button>
+
+<!-- Result Box with RGB Border -->
+<div class="result-box" id="borderBox">
+    <div class="result-inner" id="codeBox">----</div>
+</div>
+
+<!-- Footer Badges -->
+<div class="badge-group">
+    <span class="badge">🤖 WHATSAPP BOT</span>
+    <span class="badge">⚡ BLOOD-MD-MINI</span>
+    <span class="badge">✨ 2026</span>
+</div>
+
+<p class="status rgb-text" style="margin-top: 10px; font-size: 0.6rem;">MADE BY BLOOD--MD · MINI BOT EDITION</p>
+
+</div>
+
+<script>
+// ===== EXACT ORIGINAL FUNCTIONALITY - NO CHANGES =====
+async function getCode() {
+    const num = document.getElementById("number").value.replace(/[^0-9]/g, '');
+    const codeBox = document.getElementById("codeBox");
+    const borderBox = document.getElementById("borderBox");
+
+    // Agar number khali hai
+    if (!num) {
+        borderBox.style.display = "block";
+        codeBox.style.letterSpacing = "normal";
+        codeBox.style.color = "#ff4d6d";
+        codeBox.innerText = "APNA WHATSAPP NUMBER LIKHE";
+        return;
+    }
+
+    // Loading State
+    borderBox.style.display = "block";
+    codeBox.style.letterSpacing = "normal";
+    codeBox.style.color = "#9b59ff";
+    codeBox.innerText = "CONNECTING.....";
+
+    try {
+        const res = await fetch(`/code?number=${num}`);
+        const data = await res.json();
+        
+        if (data.code) {
+            codeBox.style.letterSpacing = "4px";
+            codeBox.style.color = "#fff";
+            codeBox.innerText = data.code;
+        } else {
+            codeBox.style.color = "#ff4d6d";
+            codeBox.innerText = "SERVER FULL";
+        }
+    } catch (e) {
+        codeBox.style.color = "#ff4d6d";
+        codeBox.innerText = "SERVER IS FULL";
+    }
+}
+
+// Enter key support
+document.getElementById("number").addEventListener("keydown", function(e) {
+    if (e.key === "Enter") {
+        e.preventDefault();
+        getCode();
+    }
+});
+</script>
+
+</body>
+</html>
