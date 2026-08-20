@@ -4,8 +4,8 @@
   "description": "WhatsApp Bot Base Created By Blood-co",
   "main": "index.js",
   "engines": {
-    "node": "20.x"
-  },
+  "node": ">=22.0.0"
+},
   "scripts": {
     "start": "node index.js"
   },
