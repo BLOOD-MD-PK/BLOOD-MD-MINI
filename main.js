@@ -1,5 +1,5 @@
 // ============================================
-// 🚀 BLOOD-MD-MD MINI - FIXED MAIN.JS
+// 🚀 BLOOD-MD MINI - FIXED MAIN.JS
 // 🩸 Developer: ʙʟᴏᴏᴅ-ᴄᴏ
 // ============================================
 
@@ -19,7 +19,7 @@ const {
 // ========== SETTINGS.JS SE FETCH ==========
 const config = require('./config');
 const { sms } = require('./lib/msg');
-const events = require('./arslan');
+const events = require('./blood');
 
 const {
     connectdb,
