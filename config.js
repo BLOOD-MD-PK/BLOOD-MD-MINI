@@ -69,7 +69,7 @@ module.exports = {
     CHANNEL_JID: '120363410830712574@newsletter',
     
     CHANNEL_IDS: [
-        '120363410830712574@newsletter
+        '120363410830712574@newsletter',
     ],
     
     REACT_EMOJIS: [
